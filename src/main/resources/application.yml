@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: bootstrap
+  datasource:
+    url: jdbc:mysql://localhost:3306/jp #db url
+    username: root #db username
+    password: root #db password
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+#logging configurations
+logging:
+  level:
+    root: INFO                  # default log level for everything
+    com.app.bootstrap: DEBUG    # enable DEBUG logs only for your code
+    org.springframework: DEBUG   # keep Spring framework logs at INFO
+    org.hibernate.SQL: DEBUG    # log SQL queries (Hibernate)
+
+  file:
+    name: logs/app.log          # log file output (creates logs/app.log)
+
+#app custom configurations
+app:
+  security:
+    jwtSecret: "======================Stark=Industries7==========================="
+    jwtExpirationMs: 86400000
